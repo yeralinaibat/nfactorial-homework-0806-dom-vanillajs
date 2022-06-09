@@ -197,3 +197,53 @@ ul li a:hover {
 .about .center {
   text-align: center;
 }
+
+.progress-bar {
+  grid-area: four;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+#progressBar {
+  appearance: none;
+  height: 5px;
+  background: white;
+  width: 57.5%;
+  outline: none;
+  border-radius: 30px;
+}
+
+#progressBar::-webkit-slider-thumb {
+  appearance: none;
+  height: 11px;
+  width: 11px;
+  outline: none;
+  background: #000000;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.track-time {
+  grid-area: five;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* border: 1px solid red; */
+}
+
+#currentTime {
+  margin-top: 5px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+}
+
+#durationTime {
+  margin-top: 5px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  color: #020202;
+  text-shadow: 0 0 15px white;
+}

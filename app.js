@@ -10,6 +10,10 @@ const audio = document.querySelector("#audio");
 const coverArt = document.querySelector("#cover");
 const musicbox = document.querySelector("#musicbox");
 
+const progressBar = document.getElementById("progressBar");
+const currentTime = document.getElementById("currentTime");
+const durationTime = document.getElementById("durationTime");
+
 let playImg = "./images/play.png";
 let pauseImg = "./images/pause-button.png";
 
@@ -99,8 +103,32 @@ function playHandler() {
   isPlaying ? pauseSong() : playSong();
 }
 
+function progressValue() {
+  progressBar.max = audio.duration;
+  progressBar.value = audio.currentTime;
+
+  currentTime.textContent = formatTime(audio.currentTime);
+  durationTime.textContent = formatTime(audio.duration);
+}
+
+setInterval(progressValue, 500);
+
+function formatTime(sec) {
+  let minutes = Math.floor(sec / 60);
+  let seconds = Math.floor(sec - minutes * 60);
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  return `${minutes}:${seconds}`;
+}
+
+function changeProgressBar() {
+  audio.currentTime = progressBar.value;
+}
+
 playPause.addEventListener("click", playHandler);
 backward.addEventListener("click", backPlay);
 forward.addEventListener("click", nextPlay);
+progressBar.addEventListener("click", changeProgressBar);
 
 createPlayList();
