@@ -14,6 +14,12 @@ const progressBar = document.getElementById("progressBar");
 const currentTime = document.getElementById("currentTime");
 const durationTime = document.getElementById("durationTime");
 
+
+const volume = document.querySelector(".sound-control input");
+volume.addEventListener("change", () => {
+  audio.volume = volume.value / 100;
+});
+
 let playImg = "./images/play.png";
 let pauseImg = "./images/pause-button.png";
 
